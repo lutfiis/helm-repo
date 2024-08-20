@@ -1,0 +1,312 @@
+apiVersion: v1
+entries:
+  cronjobber:
+  - apiVersion: v1
+    appVersion: 0.3.0
+    created: "2024-04-17T11:18:54.721232-04:00"
+    description: Cronjobber is the cronjob controller from Kubernetes patched with
+      time zone support.
+    digest: e65d1c8bdcac77ab482bc104039a425849e161402042b50c6a96ecfd4ac3a14e
+    home: https://github.com/hiddeco/cronjobber
+    maintainers:
+    - name: CyberHippo
+    name: cronjobber
+    urls:
+    - cronjobber-0.2.2.tgz
+    version: 0.2.2
+  dataops-observability-app:
+  - apiVersion: v2
+    appVersion: 2.x.x
+    created: "2024-04-17T11:18:54.721978-04:00"
+    description: DataOps Observability
+    digest: 5849a35136428b0032a6151965c27379059bcacf4c445d296281e0f5d3dfd6ee
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/image/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    maintainers:
+    - name: DataKitchen
+      url: https://datakitchen.io
+    name: dataops-observability-app
+    type: application
+    urls:
+    - dataops-observability-app-2.0.0.tgz
+    version: 2.0.0
+  dataops-observability-services:
+  - apiVersion: v2
+    appVersion: 2.x.x
+    created: "2024-04-17T11:18:54.732624-04:00"
+    dependencies:
+    - condition: kafka.enable
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.0.4
+    - condition: mysql.enable
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.4.5
+    description: DataOps Observability Supporting Services
+    digest: 96039a4e1ee71291c851898676efd52282c9e991f26663ba33693a1df4743e55
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/image/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    maintainers:
+    - name: DataKitchen
+      url: https://datakitchen.io
+    name: dataops-observability-services
+    type: application
+    urls:
+    - dataops-observability-services-2.0.0.tgz
+    version: 2.0.0
+  dk-app-ui:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-04-17T11:18:54.734252-04:00"
+    dependencies:
+    - name: dk-common
+      repository: https://charts.datakitchen.io
+      version: ~0.1.2
+    description: Application Helm chart for the DataKitchen Web Application UI
+    digest: d38fb735cd01b67da12190254fedbb97cc9e31047c4f22d37a3cb9dda5e61447
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/images/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    - pipelines
+    - automation
+    - workflows
+    kubeVersion: <1.25.0-x-x-x
+    maintainers:
+    - email: devops@datakitchen.io
+      name: DataKitchen DevOps Team
+      url: https://datakitchen.io
+    name: dk-app-ui
+    sources:
+    - https://github.com/DataKitchen/dk-helm-charts
+    type: application
+    urls:
+    - dk-app-ui-0.1.6.tgz
+    version: 0.1.6
+  dk-common:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-04-17T11:18:54.735385-04:00"
+    description: A library Helm chart for the DataKitchen Platform charts
+    digest: 9f40c368191924b91320358bec34124c40f6d38dff1fa267c5060e671e4dc791
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/images/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    - pipelines
+    - automation
+    - workflows
+    kubeVersion: <1.25.0-x-x-x
+    maintainers:
+    - email: devops@datakitchen.io
+      name: DataKitchen DevOps Team
+      url: https://datakitchen.io
+    name: dk-common
+    sources:
+    - https://github.com/DataKitchen/dk-helm-charts
+    type: library
+    urls:
+    - dk-common-0.1.20.tgz
+    version: 0.1.20
+  dk-orderrun-monitor:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-04-17T11:18:54.736638-04:00"
+    dependencies:
+    - name: dk-common
+      repository: https://charts.datakitchen.io
+      version: ~0.1.2
+    description: Application Helm chart for the DataKitchen Orderrun Monitor
+    digest: b7bd44d77686f1fed3a4686f5dcf0deeaa9e39120a0490d25c87488a142e7e07
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/images/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    - pipelines
+    - automation
+    - workflows
+    kubeVersion: <1.25.0-x-x-x
+    maintainers:
+    - email: devops@datakitchen.io
+      name: DataKitchen DevOps Team
+      url: https://datakitchen.io
+    name: dk-orderrun-monitor
+    sources:
+    - https://github.com/DataKitchen/dk-helm-charts
+    type: application
+    urls:
+    - dk-orderrun-monitor-0.1.5.tgz
+    version: 0.1.5
+  dk-platform:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-04-17T11:18:54.743358-04:00"
+    dependencies:
+    - condition: cronjobber.enabled
+      name: cronjobber
+      repository: https://charts.datakitchen.io
+      version: 0.2.2
+    - name: dk-common
+      repository: https://charts.datakitchen.io
+      version: 0.1.20
+    - condition: dk-app-ui.enabled
+      name: dk-app-ui
+      repository: https://charts.datakitchen.io
+      version: 0.1.6
+    - condition: dk-orderrun-monitor.enabled
+      name: dk-orderrun-monitor
+      repository: https://charts.datakitchen.io
+      version: 0.1.5
+    - condition: dk-rest-api.enabled
+      name: dk-rest-api
+      repository: https://charts.datakitchen.io
+      version: 0.1.7
+    description: Umbrella Helm Chart for full DataKitchen deployment
+    digest: 233b159bb85aea4cf0c52ab63f4c9dcba517d8a9da4f2cbe971396a9641d631d
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/image/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    - pipelines
+    - automation
+    - workflows
+    maintainers:
+    - email: devops@datakitchen.io
+      name: DataKitchen DevOps Team
+      url: https://datakitchen.io
+    name: dk-platform
+    sources:
+    - https://github.com/DataKitchen/dk-helm-charts
+    type: application
+    urls:
+    - dk-platform-0.1.44.tgz
+    version: 0.1.44
+  dk-rest-api:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-04-17T11:18:54.744744-04:00"
+    dependencies:
+    - name: dk-common
+      repository: https://charts.datakitchen.io
+      version: ~0.1.2
+    description: Application Helm chart for the DataKitchen Application REST API
+    digest: d7c65d836d61922ae341ba7394bc3a7627c12011cab18e6ce941f5e1cebce621
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/images/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    - pipelines
+    - automation
+    - workflows
+    kubeVersion: <1.25.0-x-x-x
+    maintainers:
+    - email: devops@datakitchen.io
+      name: DataKitchen DevOps Team
+      url: https://datakitchen.io
+    name: dk-rest-api
+    sources:
+    - https://github.com/DataKitchen/dk-helm-charts
+    type: application
+    urls:
+    - dk-rest-api-0.1.7.tgz
+    version: 0.1.7
+  dk-vault-token-renewer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-04-17T11:18:54.745225-04:00"
+    description: A Helm chart for Kubernetes
+    digest: 9baca0a1e8c6a35c9d348cd93a862e41fb49f9ba0e5763d423765fb6db3a43e0
+    name: dk-vault-token-renewer
+    type: application
+    urls:
+    - dk-vault-token-renewer-0.1.5.tgz
+    version: 0.1.5
+  heimdall:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-04-17T11:18:54.758093-04:00"
+    dependencies:
+    - condition: kafka.enable
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.0.4
+    - condition: mysql.enable
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.4.5
+    description: Helm Chart for Heimdall deployment
+    digest: 358e0ad4c137af7d4ca5c43ca266569544b26f0b5610cd75c0d6996d6eeb5d11
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/image/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    maintainers:
+    - email: devops@datakitchen.io
+      name: DataKitchen DevOps Team
+      url: https://datakitchen.io
+    name: heimdall
+    type: application
+    urls:
+    - heimdall-0.1.0.tgz
+    version: 0.1.0
+  observability-app:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-04-17T11:18:54.759588-04:00"
+    description: DataOps Observability
+    digest: 3c0bb150a25ec678ecabf1e590bfe7458e305a65dd48b37a078c92e9f4de2525
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/image/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    maintainers:
+    - name: DataKitchen
+      url: https://datakitchen.io
+    name: observability-app
+    type: application
+    urls:
+    - observability-app-0.1.0.tgz
+    version: 0.1.0
+  observability-services:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-04-17T11:18:54.769826-04:00"
+    dependencies:
+    - condition: kafka.enable
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.0.4
+    - condition: mysql.enable
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.4.5
+    description: DataOps Observability
+    digest: aa20354219e2d3d3537c90f1117b209a5294e030c899831f67b44ca67e48eac4
+    home: https://datakitchen.io
+    icon: https://cloud.datakitchen.io/assets/image/dk-logo.svg
+    keywords:
+    - datakitchen
+    - dataops
+    maintainers:
+    - name: DataKitchen
+      url: https://datakitchen.io
+    name: observability-services
+    type: application
+    urls:
+    - observability-services-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-04-17T11:18:54.718037-04:00"
